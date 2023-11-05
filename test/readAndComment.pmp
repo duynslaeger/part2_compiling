@@ -1,0 +1,11 @@
+** Short comment read(b)
+**read(c)
+read(a)
+"Not a comment"
+
+''Long comment should not be analyzed by the the lexer''
+
+'' Multiline long comment
+should not be analyzed by the lexer ''
+
+'' Comment not closed

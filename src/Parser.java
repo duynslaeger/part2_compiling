@@ -1,5 +1,6 @@
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.io.IOException;
 
 
@@ -64,7 +65,7 @@ public class Parser {
                 derivationList.add(1);
                 children.add(matchTest(LexicalUnit.BEG));
                 nextToken();
-                children.add(CODE);
+                children.add(CODE());
                 nextToken();
                 children.add(matchTest(LexicalUnit.END));
                 break;
@@ -73,11 +74,32 @@ public class Parser {
                 syntaxError(token, LexicalUnit.BEG);
                 break;
         }
-        return new ParseTree(new Symbol("Program"), children); // Need to add "Program" in the lexical units ? 
+        return new ParseTree(new Symbol("PROGRAM"), children);
     }
 
     private ParseTree CODE(){
-        // TODO 
+        ArrayList<ParseTree> children = new ArrayList<>();
+        switch (tokenLexUnit) {
+            case IF:
+            case BEG:
+            case WHILE:
+            case PRINT:
+            case READ:
+            case VARNAME:
+                derivationList.add(3);
+                children.add(INSTLIST());
+                break;
+
+            case END:
+                derivationList.add(2);
+                children.add(new ParseTree(new Symbol("$\\varepsilon$")));
+                break;
+            default:
+                ArrayList<String> expected_list = new ArrayList<>();
+                Collections.addAll(expected_list, "BEG", "WHILE", "PRINT", "READ", "VARNAME", "END"); 
+                syntaxError(token, expected_list);
+                break;
+        }
     }
 
 
@@ -86,6 +108,17 @@ public class Parser {
      * @param token the token that generated the error.
      */
     private void syntaxError(Symbol token, LexicalUnit expected){
+        System.err.println("Syntax Error occured when reading the token : " + token.getValue()+" at line : " + token.getLine()+". Lexical Unit(s) "+expected+"was expected, but "+token.getType()+"was found." );
+        System.exit(1);
+    }
+
+
+
+    /**
+     * Launches an error and exits the code. 
+     * @param token the token that generated the error.
+     */
+    private void syntaxError(Symbol token, ArrayList<String> expected){
         System.err.println("Syntax Error occured when reading the token : " + token.getValue()+" at line : " + token.getLine()+". Lexical Unit(s) "+expected+"was expected, but "+token.getType()+"was found." );
         System.exit(1);
     }

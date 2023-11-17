@@ -47,7 +47,7 @@ public class Parser {
      * Once the parsing is finished, it prints the left most derivation
      * @return the parsing tree of the leftmost derivation
      */
-    private ParseTree startParsing(){
+    public ParseTree startParsing(){
         ParseTree parseTree = Program();
         System.out.println(derivationList.toString());
         return parseTree;

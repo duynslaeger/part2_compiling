@@ -7,7 +7,8 @@ public enum LexicalUnit{
     ASSIGN,
     LPAREN,
     RPAREN,
-    MINUS,
+    MINUSUNARY,
+    MINUS, // Minus binary
     PLUS,
     TIMES,
     DIVIDE,

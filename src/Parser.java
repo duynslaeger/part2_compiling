@@ -852,7 +852,7 @@ public class Parser {
      * @param token the token that generated the error.
      */
     private void syntaxError(Symbol token, ArrayList<String> expected){
-        System.err.println("Syntax Error occured when reading the token : " + token.getValue()+" at line : " + token.getLine()+". Lexical Unit(s) "+expected+" was expected, but "+token.getType()+" was found." );
+        System.err.println("Syntax Error occured when reading the token : " + token.getValue()+" at line : " + token.getLine()+". One of the following Lexical Unit "+expected+" was expected, but "+token.getType()+" was found." );
         System.exit(1);
     }
 

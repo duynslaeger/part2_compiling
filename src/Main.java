@@ -1,4 +1,5 @@
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -45,7 +46,13 @@ public class Main{
 
         ParseTree parseTree = parser.startParsing();
         if(tex){
-            // Creates the latex parseTree
+            try {
+                FileWriter ouputTex = new FileWriter(texPath);
+                ouputTex.write(parseTree.toLaTeX());
+                ouputTex.close();
+            }catch (IOException e){
+                e.printStackTrace();    
+            }
         }
 
     }

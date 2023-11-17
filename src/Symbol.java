@@ -50,6 +50,10 @@ public class Symbol{
 	public boolean isNonTerminal(){
 		return this.type == null;
 	}
+
+	public boolean hasValue(){
+		return this.value != null;
+	}
 	
 	public LexicalUnit getType(){
 		return this.type;
@@ -69,6 +73,28 @@ public class Symbol{
 
 	public String getName(){
 		return this.name;
+	}
+
+	public String toTexString(){
+		if(this.isNonTerminal()){
+			return this.name;
+		}
+		if(hasValue()){
+			if(this.type.equals(LexicalUnit.VARNAME)){
+				return "[VarName]";
+			}
+			else if(this.type.equals(LexicalUnit.NUMBER)){
+				return "[Number]";
+			}
+			else if(this.type.equals(LexicalUnit.SMALLER)){
+				return "$<$";
+			}
+			else{
+				return this.value.toString();
+			}
+			
+		}
+		return (this.type).toString();
 	}
 	
 	@Override

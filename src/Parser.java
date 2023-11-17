@@ -48,8 +48,18 @@ public class Parser {
      * @return the parsing tree of the leftmost derivation
      */
     public ParseTree startParsing(){
+        derivationList = new ArrayList<>();
         ParseTree parseTree = Program();
-        System.out.println(derivationList.toString());
+        // System.out.println(derivationList.toString());
+        int size = derivationList.size();
+        StringBuilder cleanPrint = new StringBuilder();
+        for (Integer i : derivationList) {
+            cleanPrint.append(i.toString());
+            if (i != size - 1) {
+                cleanPrint.append(" ");
+            }
+        }
+        System.out.println(cleanPrint);
         return parseTree;
     }
 
@@ -77,7 +87,7 @@ public class Parser {
                 syntaxError(token, LexicalUnit.BEG);
                 break;
         }
-        return new ParseTree(new Symbol("<Program>>"), children);
+        return new ParseTree(new Symbol("$<$Program$>$"), children);
     }
 
     /** 
@@ -110,7 +120,7 @@ public class Parser {
                 syntaxError(token, expected_list);
                 break;
         }
-        return new ParseTree(new Symbol("<Code>"), children);
+        return new ParseTree(new Symbol("$<$Code$>$"), children);
     }
 
 
@@ -140,7 +150,7 @@ public class Parser {
                 syntaxError(token, expected_list);
                 break;
         }
-        return new ParseTree(new Symbol("<InstList>"), children);
+        return new ParseTree(new Symbol("$<$InstList$>$"), children);
     }
 
 
@@ -170,7 +180,7 @@ public class Parser {
                 syntaxError(token, expected_list);
                 break;
         }
-        return new ParseTree(new Symbol("<InstFactorized>"), children);
+        return new ParseTree(new Symbol("$<$InstFactorized$>$"), children);
     }
 
 
@@ -219,7 +229,7 @@ public class Parser {
                 syntaxError(token, expected_list);
                 break;
         }
-        return new ParseTree(new Symbol("<Instruction>"), children);
+        return new ParseTree(new Symbol("$<$Instruction$>$"), children);
     }
 
 
@@ -246,7 +256,7 @@ public class Parser {
                 syntaxError(token,LexicalUnit.VARNAME);
                 break;
         }
-        return new ParseTree(new Symbol("<Assign>"), children);
+        return new ParseTree(new Symbol("$<$Assign$>$"), children);
     }
 
 
@@ -274,7 +284,7 @@ public class Parser {
                 syntaxError(token, expected_list);
                 break;
         }
-        return new ParseTree(new Symbol("<ExprArith>"), children);
+        return new ParseTree(new Symbol("$<$ExprArith$>$"), children);
     }
 
 
@@ -324,7 +334,7 @@ public class Parser {
                 syntaxError(token, expected_list);
                 break;
         }
-        return new ParseTree(new Symbol("<EA'>"), children);
+        return new ParseTree(new Symbol("$<$EA'$>$"), children);
     }
 
 
@@ -352,7 +362,7 @@ public class Parser {
                 syntaxError(token, expected_list);
                 break;
         }
-        return new ParseTree(new Symbol("<ExpGenProdDiv>"), children);
+        return new ParseTree(new Symbol("$<$ExpGenProdDiv$>$"), children);
     }
 
 
@@ -402,7 +412,7 @@ public class Parser {
                 syntaxError(token, expected_list);
                 break;
         }
-        return new ParseTree(new Symbol("<ExpProdDiv>"), children);
+        return new ParseTree(new Symbol("$<$ExpProdDiv$>$"), children);
     }
 
 
@@ -441,7 +451,7 @@ public class Parser {
                 syntaxError(token, expected_list);
                 break;
         }
-        return new ParseTree(new Symbol("<InterExp>"), children);
+        return new ParseTree(new Symbol("$<$InterExp$>$"), children);
     }
 
 
@@ -471,7 +481,7 @@ public class Parser {
                 syntaxError(token, expected_list);
                 break;
         }
-        return new ParseTree(new Symbol("<Atom>"), children);
+        return new ParseTree(new Symbol("$<$Atom$>$"), children);
     }
 
     /** 
@@ -498,7 +508,7 @@ public class Parser {
                 syntaxError(token, LexicalUnit.IF);
                 break;
         }
-        return new ParseTree(new Symbol("<If>"), children);
+        return new ParseTree(new Symbol("$<$If$>$"), children);
     }
 
 
@@ -529,7 +539,7 @@ public class Parser {
                 syntaxError(token, expected_list);
                 break;
         }
-        return new ParseTree(new Symbol("<IfFactorized>"), children);
+        return new ParseTree(new Symbol("$<$IfFactorized$>$"), children);
     }
 
 
@@ -558,7 +568,7 @@ public class Parser {
                 syntaxError(token, expected_list);
                 break;
         }
-        return new ParseTree(new Symbol("<Cond>"), children);
+        return new ParseTree(new Symbol("$<$Cond$>$"), children);
     }
 
 
@@ -591,7 +601,7 @@ public class Parser {
                 syntaxError(token, expected_list);
                 break;
         }
-        return new ParseTree(new Symbol("<Cond'>"), children);
+        return new ParseTree(new Symbol("$<$Cond'$>$"), children);
     }
 
 
@@ -620,7 +630,7 @@ public class Parser {
                 syntaxError(token, expected_list);
                 break;
         }
-        return new ParseTree(new Symbol("<CondAND>"), children);
+        return new ParseTree(new Symbol("$<$CondAND$>$"), children);
     }
 
 
@@ -655,7 +665,7 @@ public class Parser {
                 syntaxError(token, expected_list);
                 break;
         }
-        return new ParseTree(new Symbol("<CondAND'>"), children);
+        return new ParseTree(new Symbol("$<$CondAND'$>$"), children);
     }
 
 
@@ -690,7 +700,7 @@ public class Parser {
                 syntaxError(token, expected_list);
                 break;
         }
-        return new ParseTree(new Symbol("<CondInter>"), children);
+        return new ParseTree(new Symbol("$<$CondInter$>$"), children);
     }
 
 
@@ -719,7 +729,7 @@ public class Parser {
                 syntaxError(token, expected_list);
                 break;
         }
-        return new ParseTree(new Symbol("<SimpleCond>"), children);
+        return new ParseTree(new Symbol("$<$SimpleCond$>$"), children);
     }
 
 
@@ -749,7 +759,7 @@ public class Parser {
                 syntaxError(token, expected_list);
                 break;
         }
-        return new ParseTree(new Symbol("<Comp>"), children);
+        return new ParseTree(new Symbol("$<$Comp$>$"), children);
     }
 
 
@@ -769,13 +779,14 @@ public class Parser {
                 nextToken();
                 children.add(Cond());
                 children.add(matchTest(LexicalUnit.DO));
+                nextToken();
                 children.add(Instruction());
                 break;
             default:
                 syntaxError(token, LexicalUnit.WHILE);
                 break;
         }
-        return new ParseTree(new Symbol("<While>"), children);
+        return new ParseTree(new Symbol("$<$While$>$"), children);
     }
 
 
@@ -804,7 +815,7 @@ public class Parser {
                 syntaxError(token, LexicalUnit.PRINT);
                 break;
         }
-        return new ParseTree(new Symbol("<Print>"), children);
+        return new ParseTree(new Symbol("$<$Print$>$"), children);
     }
     
 
@@ -833,7 +844,7 @@ public class Parser {
                 syntaxError(token, LexicalUnit.READ);
                 break;
         }
-        return new ParseTree(new Symbol("<Read>"), children);
+        return new ParseTree(new Symbol("$<$Read$>$"), children);
     }
 
 
@@ -842,7 +853,7 @@ public class Parser {
      * @param token the token that generated the error.
      */
     private void syntaxError(Symbol token, LexicalUnit expected){
-        System.err.println("Syntax Error occured when reading the token : " + token.getValue()+" at line : " + token.getLine()+". Lexical Unit "+expected+" was expected, but "+token.getType()+" was found." );
+        System.err.println("Syntax Error occured when reading the token '" + token.getValue()+"' at line " + token.getLine()+". Lexical Unit "+expected+" was expected, but "+token.getType()+" was found." );
         System.exit(1);
     }
 
@@ -852,7 +863,7 @@ public class Parser {
      * @param token the token that generated the error.
      */
     private void syntaxError(Symbol token, ArrayList<String> expected){
-        System.err.println("Syntax Error occured when reading the token : " + token.getValue()+" at line : " + token.getLine()+". One of the following Lexical Unit "+expected+" was expected, but "+token.getType()+" was found." );
+        System.err.println("Syntax Error occured when reading the token '" + token.getValue()+"' at line " + token.getLine()+". One of the following Lexical Unit "+expected+" was expected, but "+token.getType()+" was found." );
         System.exit(1);
     }
 

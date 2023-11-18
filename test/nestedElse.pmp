@@ -1,0 +1,13 @@
+begin
+    read(a)...
+    if 1 < a then
+        begin
+            if 2 < a then
+                print(a)
+            else
+                a := 2
+        end...
+    print(a)
+end
+
+** Here, because the action table was built on an ambiguous/erroneous rule, the else should be linked to the closest if

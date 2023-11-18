@@ -43,11 +43,11 @@ public class Main{
          * The parser
          */
         final Parser parser = new Parser(source);
-
         ParseTree parseTree = parser.startParsing();
+        
         if(tex){
             try {
-                FileWriter ouputTex = new FileWriter(texPath);
+                FileWriter ouputTex = new FileWriter("../more/LaTexTrees/"+texPath);
                 ouputTex.write(parseTree.toLaTeX());
                 ouputTex.close();
             }catch (IOException e){

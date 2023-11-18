@@ -1,0 +1,13 @@
+begin
+  read(a)...
+  while 0 < a  and a < 5 do
+    begin
+      if {1 < a} then
+        begin
+          print(a)...
+          b := a
+        end
+    end...
+  print(a)
+end
+  

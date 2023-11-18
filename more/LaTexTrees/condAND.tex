@@ -1,0 +1,14 @@
+\documentclass[border=5pt]{standalone}
+
+\usepackage{tikz}
+\usepackage{forest}
+
+\begin{document}
+
+\begin{forest}for tree={rectangle, draw, l sep=20pt}[{$<$Program$>$} [{begin} ][{$<$Code$>$} [{$<$InstList$>$} [{$<$Instruction$>$} [{$<$Read$>$} [{read} ][{(} ][{[VarName]} ][{)} ]]][{$<$InstFactorized$>$} [{...} ][{$<$InstList$>$} [{$<$Instruction$>$} [{$<$While$>$} [{while} ][{$<$Cond$>$} [{$<$CondAND$>$} [{$<$CondInter$>$} [{$<$SimpleCond$>$} [{$<$ExprArith$>$} [{$<$ExpGenProdDiv$>$} [{$<$InterExp$>$} [{$<$Atom$>$} [{[Number]} ]]][{$<$ExpProdDiv$>$} [{$\varepsilon$} ]]][{$<$EA'$>$} [{$\varepsilon$} ]]][{$<$Comp$>$} [{$<$} ]][{$<$ExprArith$>$} [{$<$ExpGenProdDiv$>$} [{$<$InterExp$>$} [{$<$Atom$>$} [{[VarName]} ]]][{$<$ExpProdDiv$>$} [{$\varepsilon$} ]]][{$<$EA'$>$} [{$\varepsilon$} ]]]]][{$<$CondAND'$>$} [{and} ][{$<$CondInter$>$} [{$<$SimpleCond$>$} [{$<$ExprArith$>$} [{$<$ExpGenProdDiv$>$} [{$<$InterExp$>$} [{$<$Atom$>$} [{[VarName]} ]]][{$<$ExpProdDiv$>$} [{$\varepsilon$} ]]][{$<$EA'$>$} [{$\varepsilon$} ]]][{$<$Comp$>$} [{$<$} ]][{$<$ExprArith$>$} [{$<$ExpGenProdDiv$>$} [{$<$InterExp$>$} [{$<$Atom$>$} [{[Number]} ]]][{$<$ExpProdDiv$>$} [{$\varepsilon$} ]]][{$<$EA'$>$} [{$\varepsilon$} ]]]]][{$<$CondAND'$>$} [{$\varepsilon$} ]]]][{$<$Cond'$>$} [{$\varepsilon$} ]]][{do} ][{$<$Instruction$>$} [{begin} ][{$<$InstList$>$} [{$<$Instruction$>$} [{$<$If$>$} [{if} ][{$<$Cond$>$} [{$<$CondAND$>$} [{$<$CondInter$>$} [{{} ][{$<$Cond$>$} [{$<$CondAND$>$} [{$<$CondInter$>$} [{$<$SimpleCond$>$} [{$<$ExprArith$>$} [{$<$ExpGenProdDiv$>$} [{$<$InterExp$>$} [{$<$Atom$>$} [{[Number]} ]]][{$<$ExpProdDiv$>$} [{$\varepsilon$} ]]][{$<$EA'$>$} [{$\varepsilon$} ]]][{$<$Comp$>$} [{$<$} ]][{$<$ExprArith$>$} [{$<$ExpGenProdDiv$>$} [{$<$InterExp$>$} [{$<$Atom$>$} [{[VarName]} ]]][{$<$ExpProdDiv$>$} [{$\varepsilon$} ]]][{$<$EA'$>$} [{$\varepsilon$} ]]]]][{$<$CondAND'$>$} [{$\varepsilon$} ]]][{$<$Cond'$>$} [{$\varepsilon$} ]]][{}} ]][{$<$CondAND'$>$} [{$\varepsilon$} ]]][{$<$Cond'$>$} [{$\varepsilon$} ]]][{then} ][{$<$Instruction$>$} [{begin} ][{$<$InstList$>$} [{$<$Instruction$>$} [{$<$Print$>$} [{print} ][{(} ][{[VarName]} ][{)} ]]][{$<$InstFactorized$>$} [{...} ][{$<$InstList$>$} [{$<$Instruction$>$} [{$<$Assign$>$} [{[VarName]} ][{:=} ][{$<$ExprArith$>$} [{$<$ExpGenProdDiv$>$} [{$<$InterExp$>$} [{$<$Atom$>$} [{[VarName]} ]]][{$<$ExpProdDiv$>$} [{$\varepsilon$} ]]][{$<$EA'$>$} [{$\varepsilon$} ]]]]][{$<$InstFactorized$>$} [{$\varepsilon$} ]]]]][{end} ]][{$<$IfFactorized$>$} [{$\varepsilon$} ]]]][{$<$InstFactorized$>$} [{$\varepsilon$} ]]][{end} ]]]][{$<$InstFactorized$>$} [{...} ][{$<$InstList$>$} [{$<$Instruction$>$} [{$<$Print$>$} [{print} ][{(} ][{[VarName]} ][{)} ]]][{$<$InstFactorized$>$} [{$\varepsilon$} ]]]]]]]][{end} ]];
+\end{forest}
+
+\end{document}
+%% Local Variables:
+%% TeX-engine: pdflatex
+%% End:

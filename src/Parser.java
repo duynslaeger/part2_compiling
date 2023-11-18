@@ -50,7 +50,7 @@ public class Parser {
     public ParseTree startParsing(){
         derivationList = new ArrayList<>();
         ParseTree parseTree = Program();
-        // System.out.println(derivationList.toString());
+
         int size = derivationList.size();
         StringBuilder cleanPrint = new StringBuilder();
         for (Integer i : derivationList) {
@@ -272,7 +272,7 @@ public class Parser {
         switch (tokenLexUnit) {
             case VARNAME:
             case NUMBER:
-            case MINUSUNARY:
+            case MINUS:
             case LPAREN:
                 derivationList.add(14);
                 children.add(ExpGenProdDiv());
@@ -280,7 +280,7 @@ public class Parser {
                 break;
             default:
                 ArrayList<String> expected_list = new ArrayList<>();
-                Collections.addAll(expected_list, "VARNAME", "NUMBER", "MINUSUNARY", "LPAREN"); 
+                Collections.addAll(expected_list, "VARNAME", "NUMBER", "MINUS", "LPAREN"); 
                 syntaxError(token, expected_list);
                 break;
         }
@@ -350,7 +350,7 @@ public class Parser {
         switch (tokenLexUnit) {
             case VARNAME:
             case NUMBER:
-            case MINUSUNARY:
+            case MINUS:
             case LPAREN:
                 derivationList.add(18);
                 children.add(InterExp());
@@ -358,7 +358,7 @@ public class Parser {
                 break;
             default:
                 ArrayList<String> expected_list = new ArrayList<>();
-                Collections.addAll(expected_list, "VARNAME", "NUMBER", "MINUSUNARY", "LPAREN"); 
+                Collections.addAll(expected_list, "VARNAME", "NUMBER", "MINUS", "LPAREN"); 
                 syntaxError(token, expected_list);
                 break;
         }
@@ -431,7 +431,7 @@ public class Parser {
                 derivationList.add(22);
                 children.add(Atom());
                 break;
-            case MINUSUNARY:
+            case MINUS:
                 derivationList.add(24);
                 children.add(new ParseTree(token)); // Here token is - (unary)
                 nextToken();
@@ -447,7 +447,7 @@ public class Parser {
                 break;
             default:
                 ArrayList<String> expected_list = new ArrayList<>();
-                Collections.addAll(expected_list, "VARNAME", "NUMBER", "MINUSUNARY", "LPAREN"); 
+                Collections.addAll(expected_list, "VARNAME", "NUMBER", "MINUS", "LPAREN"); 
                 syntaxError(token, expected_list);
                 break;
         }
@@ -555,7 +555,7 @@ public class Parser {
         switch (tokenLexUnit) {
             case VARNAME:
             case NUMBER:
-            case MINUSUNARY:
+            case MINUS:
             case LPAREN:
             case LBRACK:
                 derivationList.add(30);
@@ -564,7 +564,7 @@ public class Parser {
                 break;
             default:
                 ArrayList<String> expected_list = new ArrayList<>();
-                Collections.addAll(expected_list, "VARNAME", "NUMBER", "MINUSUNARY", "LPAREN", "LBRACK"); 
+                Collections.addAll(expected_list, "VARNAME", "NUMBER", "MINUS", "LPAREN", "LBRACK"); 
                 syntaxError(token, expected_list);
                 break;
         }
@@ -617,7 +617,7 @@ public class Parser {
         switch (tokenLexUnit) {
             case VARNAME:
             case NUMBER:
-            case MINUSUNARY:
+            case MINUS:
             case LPAREN:
             case LBRACK:
                 derivationList.add(33);
@@ -626,7 +626,7 @@ public class Parser {
                 break;
             default:
                 ArrayList<String> expected_list = new ArrayList<>();
-                Collections.addAll(expected_list, "VARNAME", "NUMBER", "MINUSUNARY", "LPAREN", "LBRACK"); 
+                Collections.addAll(expected_list, "VARNAME", "NUMBER", "MINUS", "LPAREN", "LBRACK"); 
                 syntaxError(token, expected_list);
                 break;
         }
@@ -689,14 +689,14 @@ public class Parser {
                 break;
             case VARNAME:
             case NUMBER:
-            case MINUSUNARY:
+            case MINUS:
             case LPAREN:
                 derivationList.add(37);
                 children.add(SimpleCond());
                 break;
             default:
                 ArrayList<String> expected_list = new ArrayList<>();
-                Collections.addAll(expected_list, "VARNAME", "NUMBER", "MINUSUNARY", "LPAREN", "LBRACK"); 
+                Collections.addAll(expected_list, "VARNAME", "NUMBER", "MINUS", "LPAREN", "LBRACK"); 
                 syntaxError(token, expected_list);
                 break;
         }
@@ -716,7 +716,7 @@ public class Parser {
         switch (tokenLexUnit) {
             case VARNAME:
             case NUMBER:
-            case MINUSUNARY:
+            case MINUS:
             case LPAREN:
                 derivationList.add(38);
                 children.add(ExprArith());
@@ -725,7 +725,7 @@ public class Parser {
                 break;
             default:
                 ArrayList<String> expected_list = new ArrayList<>();
-                Collections.addAll(expected_list, "VARNAME", "NUMBER", "MINUSUNARY", "LPAREN"); 
+                Collections.addAll(expected_list, "VARNAME", "NUMBER", "MINUS", "LPAREN"); 
                 syntaxError(token, expected_list);
                 break;
         }

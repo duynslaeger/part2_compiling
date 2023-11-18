@@ -1,3 +1,4 @@
 
   read(a)...
   
+** should return an error because it does not starts with begin and doesn't end with end

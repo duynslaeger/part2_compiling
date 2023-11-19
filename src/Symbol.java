@@ -89,6 +89,12 @@ public class Symbol{
 			else if(this.type.equals(LexicalUnit.SMALLER)){
 				return "$<$";
 			}
+			else if(this.type.equals(LexicalUnit.LBRACK)){
+				return "$\\{$";
+			}
+			else if(this.type.equals(LexicalUnit.RBRACK)){
+				return "$\\}$";
+			}
 			else{
 				return this.value.toString();
 			}

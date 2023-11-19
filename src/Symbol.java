@@ -81,10 +81,10 @@ public class Symbol{
 		}
 		if(hasValue()){
 			if(this.type.equals(LexicalUnit.VARNAME)){
-				return "[VarName]";
+				return "[VarName]: "+this.value;
 			}
 			else if(this.type.equals(LexicalUnit.NUMBER)){
-				return "[Number]";
+				return "[Number]: "+this.value;
 			}
 			else if(this.type.equals(LexicalUnit.SMALLER)){
 				return "$<$";

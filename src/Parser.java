@@ -314,8 +314,6 @@ public class Parser {
                 break;
             case EQUAL:
             case SMALLER:
-            case TIMES:
-            case DIVIDE:
             case ELSE:
             case AND:
             case OR:
@@ -330,7 +328,7 @@ public class Parser {
                 break;
             default:
                 ArrayList<String> expected_list = new ArrayList<>();
-                Collections.addAll(expected_list, "EQUAL", "SMALLER", "PLUS", "MINUS", "TIMES", "DIVIDE", "ELSE", "AND", "OR", "END", "DOTS", "RPAREN", "RBRACK", "THEN", "DO"); 
+                Collections.addAll(expected_list, "EQUAL", "SMALLER", "PLUS", "MINUS", "ELSE", "AND", "OR", "END", "DOTS", "RPAREN", "RBRACK", "THEN", "DO"); 
                 syntaxError(token, expected_list);
                 break;
         }
@@ -435,7 +433,7 @@ public class Parser {
                 derivationList.add(24);
                 children.add(new ParseTree(token)); // Here token is - (unary)
                 nextToken();
-                children.add(ExprArith());
+                children.add(InterExp());
                 break;
             case LPAREN:
                 derivationList.add(23);

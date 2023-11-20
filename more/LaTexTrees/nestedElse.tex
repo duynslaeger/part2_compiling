@@ -1,0 +1,14 @@
+\documentclass[border=5pt]{standalone}
+
+\usepackage{tikz}
+\usepackage{forest}
+
+\begin{document}
+
+\begin{forest}for tree={rectangle, draw, l sep=20pt}[{$<$Program$>$} [{begin} ][{$<$Code$>$} [{$<$InstList$>$} [{$<$Instruction$>$} [{$<$Read$>$} [{read} ][{(} ][{[VarName]: a} ][{)} ]]][{$<$InstFactorized$>$} [{...} ][{$<$InstList$>$} [{$<$Instruction$>$} [{$<$If$>$} [{if} ][{$<$Cond$>$} [{$<$CondAND$>$} [{$<$CondInter$>$} [{$<$SimpleCond$>$} [{$<$ExprArith$>$} [{$<$ExpGenProdDiv$>$} [{$<$InterExp$>$} [{$<$Atom$>$} [{[Number]: 1} ]]][{$<$ExpProdDiv$>$} [{$\varepsilon$} ]]][{$<$EA'$>$} [{$\varepsilon$} ]]][{$<$Comp$>$} [{$<$} ]][{$<$ExprArith$>$} [{$<$ExpGenProdDiv$>$} [{$<$InterExp$>$} [{$<$Atom$>$} [{[VarName]: a} ]]][{$<$ExpProdDiv$>$} [{$\varepsilon$} ]]][{$<$EA'$>$} [{$\varepsilon$} ]]]]][{$<$CondAND'$>$} [{$\varepsilon$} ]]][{$<$Cond'$>$} [{$\varepsilon$} ]]][{then} ][{$<$Instruction$>$} [{begin} ][{$<$InstList$>$} [{$<$Instruction$>$} [{$<$If$>$} [{if} ][{$<$Cond$>$} [{$<$CondAND$>$} [{$<$CondInter$>$} [{$<$SimpleCond$>$} [{$<$ExprArith$>$} [{$<$ExpGenProdDiv$>$} [{$<$InterExp$>$} [{$<$Atom$>$} [{[Number]: 2} ]]][{$<$ExpProdDiv$>$} [{$\varepsilon$} ]]][{$<$EA'$>$} [{$\varepsilon$} ]]][{$<$Comp$>$} [{$<$} ]][{$<$ExprArith$>$} [{$<$ExpGenProdDiv$>$} [{$<$InterExp$>$} [{$<$Atom$>$} [{[VarName]: a} ]]][{$<$ExpProdDiv$>$} [{$\varepsilon$} ]]][{$<$EA'$>$} [{$\varepsilon$} ]]]]][{$<$CondAND'$>$} [{$\varepsilon$} ]]][{$<$Cond'$>$} [{$\varepsilon$} ]]][{then} ][{$<$Instruction$>$} [{$<$Print$>$} [{print} ][{(} ][{[VarName]: a} ][{)} ]]][{$<$IfFactorized$>$} [{else} ][{$<$Instruction$>$} [{$<$Assign$>$} [{[VarName]: a} ][{:=} ][{$<$ExprArith$>$} [{$<$ExpGenProdDiv$>$} [{$<$InterExp$>$} [{$<$Atom$>$} [{[Number]: 2} ]]][{$<$ExpProdDiv$>$} [{$\varepsilon$} ]]][{$<$EA'$>$} [{$\varepsilon$} ]]]]]]]][{$<$InstFactorized$>$} [{$\varepsilon$} ]]][{end} ]][{$<$IfFactorized$>$} [{$\varepsilon$} ]]]][{$<$InstFactorized$>$} [{...} ][{$<$InstList$>$} [{$<$Instruction$>$} [{$<$Print$>$} [{print} ][{(} ][{[VarName]: a} ][{)} ]]][{$<$InstFactorized$>$} [{$\varepsilon$} ]]]]]]]][{end} ]];
+\end{forest}
+
+\end{document}
+%% Local Variables:
+%% TeX-engine: pdflatex
+%% End:
